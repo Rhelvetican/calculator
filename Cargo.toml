@@ -11,10 +11,7 @@ opt-level = 3
 lto = "fat"
 codegen-units = 1
 debug = false
-rpath = false
+rpath = true
 panic = "abort"
 debug-assertions = false
 strip = "symbols"
-
-[target.x86_64-pc-windows-msvc]
-rustflags = ["-C", "link-args=/LIBPATH:C:\\gtk-build\\gtk\\x64\\release\\lib\\"]
