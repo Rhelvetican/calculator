@@ -3,6 +3,18 @@ name = "calculator"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+gtk = { version = "0.8.0", package = "gtk4", features = ["v4_12"] }
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+debug = false
+rpath = false
+panic = "abort"
+debug-assertions = false
+strip = "symbols"
+
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "link-args=/LIBPATH:C:\\gtk-build\\gtk\\x64\\release\\lib\\"]
